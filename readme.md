@@ -4,9 +4,9 @@
 
 ## Documentation
 
-```
-প্রথমে [Pusher.com](https://pusher.com/) এ একটি Account খুলুন ।
-```
+
+## প্রথমে [Pusher](https://pusher.com/) এ একটি Account খুলুন ।
+
 ## তারপর আপনার Project Folder এ নিচের কমান্ড টি Execute করুন ।
 
 ```
