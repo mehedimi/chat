@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'MessageController@index')->middleware('auth');
+Route::get('/messages', 'MessageController@showMessages')->middleware('auth')->name('messages.all');
+Route::post('/message/create', 'MessageController@create')->name('message.create');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('test', function(){
+	dd();
+});
+
+
