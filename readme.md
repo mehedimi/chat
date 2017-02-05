@@ -1,40 +1,49 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+## Laravel And Vue Js Chat App Using Pusher.com
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+এই টি লারাভেল ৫.৪ ব্যবহার করা হয়েছে ।
 
-## About Laravel
+## Documentation
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+```
+প্রথমে [Pusher.com](https://pusher.com/) এ একটি Account খুলুন ।
+```
+## তারপর আপনার Project Folder এ নিচের কমান্ড টি Execute করুন ।
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```
+git clone https://github.com/mehedimi/chat.git
+```
+## তারপর 
+```
+cd chat
+```
+## এবার .env ফাইল টি কপি করার জন্য 
+```
+cp .env.example .env
+```
+## এবার Composer Dependency Install করতে 
+```
+composer install
+```
+## এবার Database Table Migrate করতে
+```
+php artisan migrate
+```
+## এবার Application Key Generate করার পালা
+```
+php artisan key:generate
+```
+## এবার আমাদের তৈরি করা Pusher.com এ ডুকে chat নামে একটি App তৈরী করবো । সেখানে APP_ID, KEY, SECRET এই তিন টি HASH Code পাবো । এগুলো আমাদের .env File এ যথাযত স্থানে বসিয়ে Save করবো ।
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+```
+resources/views/home.blade.php File এ নিচের দিকে Pusher('your-app-key') এই App Key এর স্থানে App Key বসিয়ে Save করলেই এর কাজ শেষ।
+```
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+## এবার আমাদের Application Run করার পালা।
+```
+php artisan serve
+```
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+Then go to `http://localhost:8000` from your browser and see the app.
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+হুড়রে এখন নিজে নিজে চ্যাট করি
