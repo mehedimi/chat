@@ -34,9 +34,6 @@ php artisan key:generate
 ```
 ## এবার আমাদের তৈরি করা Pusher.com এ ডুকে chat নামে একটি App তৈরী করবো । সেখানে APP_ID, KEY, SECRET এই তিন টি HASH Code পাবো । এগুলো আমাদের .env File এ যথাযত স্থানে বসিয়ে Save করবো ।
 
-```
-resources/views/home.blade.php File এ নিচের দিকে Pusher('your-app-key') এই App Key এর স্থানে App Key বসিয়ে Save করলেই এর কাজ শেষ।
-```
 
 
 ## এবার আমাদের Application Run করার পালা।
