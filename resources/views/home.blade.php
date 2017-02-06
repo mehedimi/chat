@@ -57,7 +57,7 @@
 
         Pusher.logToConsole = true;
 
-        var pusher = new Pusher('your-app-key', {
+        var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
           encrypted: true
         });
 
