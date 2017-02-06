@@ -79,6 +79,18 @@
         </nav>
 
         @yield('content')
+    <footer style="background-color: #fff; padding-top: 20px;padding-bottom: 20px">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; All Right Reserved, <a href="http://www.facebook.com/mehedimi">Mehedi Hasan</a></p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p>This App Created by <a href="http://www.facebook.com/mehedimi">Mehedi Hasan</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
     </div>
 
     <!-- Scripts -->
