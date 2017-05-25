@@ -27,8 +27,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $appends = ['avater_url'];
+
     public function messages()
     {
         return $this->hasMany(Message::class);
+    }
+
+    public function getAvaterUrlAttribute()
+    {
+        return "https://www.gravatar.com/avatar/" . md5($this->email) . '/?s=70';
     }
 }
