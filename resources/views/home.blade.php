@@ -23,6 +23,7 @@
     }
     .own-message{
         border-radius: 10px 10px 0 10px ;
+        background-color: #e74c3c
     }
     .media-body{
         vertical-align: middle;
@@ -91,11 +92,11 @@
             },
             mounted : function(){
                axios.get('{{route('messages.all')}}').then(response => this.messages = response.data);
-               scrollBottom();
             },
+            complete : function(){
+                scrollBottom();
+            }
         });
-
-        Pusher.logToConsole = true;
 
         var pusher = new Pusher('{{config("broadcasting.connections.pusher.key")}}', {
           encrypted: true
