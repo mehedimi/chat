@@ -3,7 +3,7 @@
 @section('content')
 <div class="container" id="app">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading">Chat With Friends</div>
                 <div class="panel-body" id="chat-body" style="height: 300px;overflow: auto; position: ">
@@ -16,7 +16,7 @@
                                 </a>
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading"><b>@{{message.user.name}}</b> says</h4>
+                                <h4 class="media-heading"><b>@{{message.user.name}}</b> says <sub>@{{ message.created_at }}</sub></h4>
                                 @{{ message.message }}
                             </div>
                         </div>
