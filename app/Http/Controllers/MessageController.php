@@ -16,7 +16,7 @@ class MessageController extends Controller
 
     public function showMessages()
     {
-    	return Message::with('user')->limit(50)->get();
+    	return Message::with('user')->get();
     }
 
     public function create(Request $request)
