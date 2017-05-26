@@ -31,6 +31,10 @@
     }
 </style>
 <div class="container" id="app">
+    <audio id="audio">
+        <source src="{{ url('audio/tone.mp3') }}" type="audio/mp3">
+        <source src="{{ url('audio/tone.ogg') }}" type="audio/ogg">
+    </audio>
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
@@ -52,7 +56,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group" >
-                        <textarea name="message" v-on:keyup.enter="getKeyCode" v-model="message" class="form-control" placeholder="Write your message and hit Enter.. " id="message" rows="4"></textarea>
+                        <textarea name="message" v-on:keyup.enter="getKeyCode" v-model="message" class="form-control" placeholder="Write your message and hit Enter.. " id="message" rows="3"></textarea>
                     </div>
                 </div>
             </div>
@@ -62,6 +66,7 @@
 @endsection
 @section('script')
     <script>
+        var audio = document.getElementById('audio');
         var app = new Vue({
             el : "#app",
             data : {
@@ -92,9 +97,6 @@
             },
             mounted : function(){
                axios.get('{{route('messages.all')}}').then(response => this.messages = response.data);
-            },
-            complete : function(){
-                scrollBottom();
             }
         });
 
@@ -104,14 +106,11 @@
 
         var channel = pusher.subscribe('chat');
         channel.bind('App\\Events\\ChatEvent', function(data) {
-          app.messages.push(data.data);
-          scrollBottom();
+          app.messages.unshift(data.data);
+          if(data.data.user.id != app.currentUser){
+            audio.play();
+          }
         });
-        function scrollBottom(){
-            $('#chat-body').animate({
-                 scrollTop: $('#chat-body')[0].scrollHeight}, 300
-            );
-        }
         $(document.body).tooltip({
             selector : '.tooltips'
         });
